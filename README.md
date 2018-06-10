@@ -6,9 +6,9 @@
 
 - [Introdução-Instalação](#parte1)   
 - [MongoDB](#parte2)   
-- [](#parte3)   
-- [](#parte4)   
-- [](#parte5)   
+- [Node](#parte3)   
+- [Express](#parte4)   
+- [Angular](#parte5)   
 - [](#parte6)   
 - [](#parte7)   
 - [](#parte8)   
@@ -171,7 +171,101 @@ show dbs
 
 ---
 
-## <a name="parte3"></a>
+## <a name="parte3">Node</a>
+
+- Aula 01 (ex01.js)
+
+```js
+const ola = () => console.log('Olá Node');
+setInterval(ola, 1000);
+
+node ex01.js
+```
+
+- Aula 02
+
+```js
+//FundamentosMEAN/node/ex02_utils.js
+function upper(text) {
+    return text.toUpperCase();
+}
+module.exports = {upper}
+
+```
+
+```js
+//FundamentosMEAN/node/ex02_teste.js
+const utils = require('./ex02_utils.js')
+console.log(utils.upper('teste de upcasa'))
+```
+
+- Aula 03
+
+```js
+// FundamentosMEAN\node\ex03_singleton.js
+let numero = 1;
+
+function exibirProximo(){
+    console.log(numero++);
+}
+
+module.exports = {exibirProximo}
+```
+
+```js
+// FundamentosMEAN\node\ex03_teste.js
+const s1 = require('./ex03_singleton');
+const s2 = require('./ex03_singleton');
+
+s1.exibirProximo();
+s2.exibirProximo();
+s1.exibirProximo();
+s2.exibirProximo();
+```
+
+- Aula 04
+```js
+// FundamentosMEAN\node\ex04_global.js
+const PI = 3.14;
+console.log(global.PI);
+
+global.obj = {
+    name: 'Estou no global!'
+}
+```
+
+```js
+// FundamentosMEANnode\ex04_teste.js
+require('./ex04_global')
+console.log(global.obj.name)
+console.log(obj.name)
+```
+
+- Aula 05
+```js
+// FundamentosMEAN/node/ex05_module.js
+console.log(global === this);
+console.log(module === this);
+console.log(module.exports === this);
+
+this.digaOi = function () {
+    console.log('Oi!!!')
+};
+```
+
+```js
+// FundamentosMEAN/node/ex05_teste.js
+const modulo = require('./ex05_module')
+modulo.digaOi()
+```
+
+
+- Aula 06
+- Aula 07
+- Aula 08
+- Aula 09
+- Aula 10
+- Aula 11
 
 
 [Voltar ao Índice](#indice)
