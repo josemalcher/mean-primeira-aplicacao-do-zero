@@ -259,13 +259,96 @@ const modulo = require('./ex05_module')
 modulo.digaOi()
 ```
 
-
 - Aula 06
+```js
+const _ = require('lodash')
+
+const alunos = [{
+    nome: 'Joao',
+    nota: 7.6
+}, {
+    nome: 'Maria',
+    nota: 8.6
+}, {
+    nome: 'Pedro',
+    nota: 8.1
+}];
+
+const media = _.sumBy(alunos, 'nota') / alunos.length;
+
+console.log(media);
+```
+- npm init -y [Criar arquivo package.json]
+- npm i lodash --save [Instalando a dependência lodash]
+
 - Aula 07
+
+```js
+// FundamentosMEAN/node/ex07_param.js
+module.exports = function(param) {
+    console.log(`O param informado foi ${param}`)
+}
+```
+
+```js
+//FundamentosMEAN/node/ex07_teste.js
+
+const moduloComoParam = require('./ex07_param');
+moduloComoParam('param1');
+
+```
+
 - Aula 08
+
+```js
+
+// FundamentosMEAN/node/ex08_process.js
+function temParam(param) {
+    return process.argv.indexOf(param) !== -1
+}
+if(temParam('--producao')){
+    console.log('Atenção total!')
+} else {
+    console.log('Tranquilo!!!')
+}
+
+//node ex08_process
+//node ex08_process --prducao
+  
+```
+
 - Aula 09
+```js
+// FundamentosMEAN/node/ex09_process.js
+process.stdout.write('Está gostando do curso? ')
+process.stdin.on('data', function(data) {
+    process.stdout.write(`Sua resposta foi ${data.toString()}Obrigado!\n`)
+    process.exit()
+})
+```
+
 - Aula 10
+
+```js
+// FundamentosMEAN/node/ex10_fs.js
+const fs = require('fs')
+const files = fs.readdirSync(__dirname)
+files.forEach(f => console.log(f))
+```
 - Aula 11
+
+```js
+// FundamentosMEAN/node/ex11_http.js
+const http = require('http')
+const server = http.createServer(function(req, res) {
+    res.writeHead(200, {"Content-Type": "text/html"})
+    res.end('<h1>Acho que é melhor usar o Express, não?</h1>')
+})
+const porta = 3456
+server.listen(porta, function() {
+    console.log(`Escutando a ${porta}`)
+})
+```
 
 
 [Voltar ao Índice](#indice)
