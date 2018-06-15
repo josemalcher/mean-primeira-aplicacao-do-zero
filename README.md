@@ -355,7 +355,86 @@ server.listen(porta, function() {
 
 ---
 
-## <a name="parte4"></a>
+## <a name="parte4">Express</a>
+
+- Aula 01 - Configuração e Mapeando uma Rota
+```js
+const express = require('express');
+const server = express();
+
+server.get('/', function (req, res) {
+    res.send('<h1>Index!</h1>');
+
+});
+
+server.all('/teste', function (req, res) {
+    res.send('<h1>TESTE</h1>');
+});
+
+server.get(/api/, function (req, res) {
+    res.send('<h1>API</h1>');
+});
+
+server.listen(3000, () => console.log('Executando'));
+```
+
+- Aula 02 - Cadeia de Middlewares
+```js
+const express = require('express');
+const server = express();
+
+server.get('/', function (req, res, next) {
+    console.log('inicio...');
+    next();
+    console.log('fim...');
+
+});
+
+server.get('/', function (req, res) {
+    console.log('Resposta....');
+    res.send('<h1>NEXT!!</h1>');
+
+});
+
+server.listen(3000, () => console.log('Executando Servidor....'));
+```
+
+- Aula 03 - Método USE
+```js
+const express = require('express');
+const server = express();
+
+
+server.use('/api',function (req, res, next) {
+//server.use(function(req, res, next) {
+    console.log('Inicio...')
+    next()
+    console.log('Fim...')
+})
+
+server.use('/api',function (req, res) {
+//server.use(function(req, res) {
+    console.log('Resposta...')
+    res.send('<h1>API!</h1>')
+})
+
+server.listen(3000, () => console.log('Executando Servidor....'));
+```
+
+- Aula 04
+```js
+
+```
+
+- Aula 05
+```js
+
+```
+
+- Aula 06
+```js
+
+```
 
 
 [Voltar ao Índice](#indice)

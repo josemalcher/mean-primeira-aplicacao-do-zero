@@ -170,3 +170,4 @@ typings/
 # End of https://www.gitignore.io/api/node,webstorm+all,intellij+all
 
 FundamentosMEAN/node/node_modules
+FundamentosMEAN/express/node_modules
